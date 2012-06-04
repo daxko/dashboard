@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PerformanceController.cs" />
     <Compile Include="Controllers\QuotesController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\SmDependencyResolver.cs" />
@@ -173,6 +174,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Quotes\_QuoteSection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Performance\LongestRunningPages.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

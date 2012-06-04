@@ -10,7 +10,7 @@
 }
 
 <div class="row">
-    <div>
+    <div class="span12">
         <form class="form-inline">
             <input type="hidden" id="transition_time" value="@Model.transition_time"/>
             <fieldset>
@@ -25,8 +25,8 @@
                 </div> 
             </fieldset>
         </form>
-    </div>
-    <div id="quote_section" class="span12">
-        @Html.Partial("_QuoteSection",Model.quote)
+        <div id="quote_section" class="span12">
+            @Html.Partial("_QuoteSection",Model.quote)
+        </div>
     </div>
 </div>
