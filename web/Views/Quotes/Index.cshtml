@@ -1,0 +1,32 @@
+﻿@model web.Models.QuotesViewModel 
+
+@{
+    ViewBag.Title = "Quotes";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/quotes/quotes.js")" type="text/javascript"></script>
+}
+
+<div class="row">
+    <div>
+        <form class="form-inline">
+            <input type="hidden" id="transition_time" value="@Model.transition_time"/>
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="transition_time">Transition Time (seconds)</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" id="transition_time_text" value="@Model.transition_time"/> 
+                            <button type="button" id="transition_time_button" class="btn btn-inverse">Set</button>
+                        </div>
+                    </div>
+                </div> 
+            </fieldset>
+        </form>
+    </div>
+    <div id="quote_section">
+        @Html.Partial("_QuoteSection",Model.quote)
+    </div>
+</div>
