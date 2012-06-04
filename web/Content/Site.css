@@ -13,9 +13,9 @@ section {
     display: block;
 }
 
-quote {
-    font-size: 50px;
-    line-height: 60px;
+.quote {
+    font-size: 90px;
+    line-height: 90px;
     font-weight: bold;
 }
 
