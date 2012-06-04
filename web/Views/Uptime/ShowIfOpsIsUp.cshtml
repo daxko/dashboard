@@ -1,0 +1,16 @@
+﻿@model web.Models.ShowIfOpsIsUpViewModel 
+
+<h1>Operations Status</h1>
+
+<div class="well">
+    <div class="span4 offset4">
+        <table>
+            <tr>
+                <td>@Html.Partial("_ApplicationStatusIndicator",Model.ops_1)</td>
+                <td>@Html.Partial("_ApplicationStatusIndicator",Model.ops_2)</td>
+                <td>@Html.Partial("_ApplicationStatusIndicator",Model.ops_3)</td>
+            </tr>
+        </table>    
+    </div>
+</div>
+

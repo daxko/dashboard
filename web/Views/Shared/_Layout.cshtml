@@ -32,6 +32,14 @@
                                 <li>@Html.ActionLink("Longest Running Pages","LongestRunningPages","Performance")</li>
                             </ul>
                         </li> 
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <span id="menu-context">App Status</span> <b class="caret"></b>
+                            </a>
+                            <ul id="context-menu" class="dropdown-menu">
+                                <li>@Html.ActionLink("Operations","ShowIfOpsIsUp","Uptime")</li>
+                            </ul>
+                        </li> 
                     </ul>
                 </div>
             </div>
