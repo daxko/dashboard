@@ -26,7 +26,7 @@ namespace domain.Quotes
                              new DaxkoSoftwareCraftsmanPrincipalQuote("Before you can solve the problem you must understand it."),
                              new DaxkoSoftwareCraftsmanPrincipalQuote("Just becuse you have always done something that way doesn't mean it isn't incredibly stupid."),
                              new Quote("Steve Jobs","It's not the customers job to know what they want."),
-                             new Quote("Steve Blank","Get out of the building."),
+                             new Quote("Steve Blank","On understanding your customers. 'Get out of the building.'"),
                              new UnknownQuote("Life it to short to build something nobody wants."),
                              new Quote("Steve Blank","Get out of the building."),
                              new Quote("Dave McClure","Customers don't care about your solution. They care about their problems."),
