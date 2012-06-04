@@ -13,6 +13,12 @@ section {
     display: block;
 }
 
+quote {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: bold;
+}
+
 /* Styles for basic forms
 -----------------------------------------------------------*/
 
