@@ -28,7 +28,6 @@ namespace domain.Quotes
                              new Quote("Steve Jobs","It's not the customers job to know what they want."),
                              new Quote("Steve Blank","On understanding your customers. 'Get out of the building.'"),
                              new UnknownQuote("Life it to short to build something nobody wants."),
-                             new Quote("Steve Blank","Get out of the building."),
                              new Quote("Dave McClure","Customers don't care about your solution. They care about their problems."),
                          };
         }
