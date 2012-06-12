@@ -20,7 +20,7 @@
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="#">Daxko Dashboard</a>
+                @Html.ActionLink("Daxko Dashboard","Index","Home",null,new{@class="brand"})
                 <div class="nav-collapse">
                     <ul class="nav">
                         <li>@Html.ActionLink("Quotes", "Index", "Quotes")</li>
@@ -38,6 +38,14 @@
                             </a>
                             <ul id="context-menu" class="dropdown-menu">
                                 <li>@Html.ActionLink("Operations","ShowIfOpsIsUp","Uptime")</li>
+                            </ul>
+                        </li> 
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <span id="menu-context">Project Status</span> <b class="caret"></b>
+                            </a>
+                            <ul id="context-menu" class="dropdown-menu">
+                                <li><a href="http://jira:8090/plugins/servlet/Wallboard/?dashboardId=11480">Operations</a></li>
                             </ul>
                         </li> 
                     </ul>

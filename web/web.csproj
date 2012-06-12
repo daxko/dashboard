@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShowIfOpsIsUpViewModelBuilder.cs" />
     <Compile Include="Controllers\PerformanceController.cs" />
     <Compile Include="Controllers\QuotesController.cs" />
     <Compile Include="Controllers\UptimeController.cs" />
@@ -138,6 +139,7 @@
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\quotes\quotes.js" />
+    <Content Include="Scripts\uptime\ops_uptime.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -186,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Uptime\_ApplicationStatusIndicator.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Uptime\_OpsApplicationStatus.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

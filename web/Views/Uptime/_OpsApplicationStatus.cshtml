@@ -1,0 +1,13 @@
+﻿@model web.Models.ShowIfOpsIsUpViewModel 
+
+@Html.HiddenFor(x=>x.refresh_time)
+<span>Refresh will happen every </span>@Model.refresh_time_display
+<br/>
+<span>Last Refreshed:</span> @Model.last_refreshed
+<table>
+    <tr>
+        <td>@Html.Partial("_ApplicationStatusIndicator",Model.ops_1)</td>
+        <td>@Html.Partial("_ApplicationStatusIndicator",Model.ops_2)</td>
+        <td>@Html.Partial("_ApplicationStatusIndicator",Model.ops_3)</td>
+    </tr>
+</table>    
