@@ -1,8 +1,6 @@
-﻿using System;
-using System.Net;
-using web.Models;
+﻿using System.Net;
 
-namespace web.Controllers
+namespace web.Models
 {
     public class ShowIfOpsIsUpViewModelBuilder
     {
