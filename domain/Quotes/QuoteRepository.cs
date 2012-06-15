@@ -29,6 +29,10 @@ namespace domain.Quotes
                              new Quote("Steve Blank","On understanding your customers. 'Get out of the building.'"),
                              new UnknownQuote("Life it to short to build something nobody wants."),
                              new Quote("Dave McClure","Customers don't care about your solution. They care about their problems."),
+                             new Quote("Brandi Kohl, Member Services Director, Long Branch Area YMCA","Daxko helps us create a wonderful member experience and enables me to be better at my job."),
+                             new Quote("Kendra Killingsworth, Office Manager, Texas County Family YMCA","Quick response to problems, wonderful news updates, and a great product all make my work ten times easier than it was."),
+                             new Quote("Daxko","Our mission is to provide technology and services that contribute significantly to the success of our customers and to provide Daxko team members with rewarding careers."),
+                             new Quote("Daxko","Core Values: Integrity W/Out Compromise. Sense of Ownership. Synergistic Teamwork."),
                          };
         }
 
