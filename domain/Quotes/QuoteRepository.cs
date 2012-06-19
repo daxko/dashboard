@@ -33,6 +33,7 @@ namespace domain.Quotes
                              new Quote("Kendra Killingsworth, Office Manager, Texas County Family YMCA","Quick response to problems, wonderful news updates, and a great product all make my work ten times easier than it was."),
                              new Quote("Daxko","Our mission is to provide technology and services that contribute significantly to the success of our customers and to provide Daxko team members with rewarding careers."),
                              new Quote("Daxko","Core Values: Integrity W/Out Compromise. Sense of Ownership. Synergistic Teamwork."),
+                             new Quote("Yoda","There is no try. Only do or do not."),
                          };
         }
 
