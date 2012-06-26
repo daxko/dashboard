@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseMetrics\ISqlJobMetricRepository.cs" />
+    <Compile Include="DatabaseMetrics\SqlJobMetricRepository.cs" />
+    <Compile Include="DatabaseMetrics\SqlJobMetrics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quotes\DaxkoSoftwareCraftsmanPrincipalQuote.cs" />
     <Compile Include="Quotes\IQuoteRepository.cs" />
