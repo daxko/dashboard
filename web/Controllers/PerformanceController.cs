@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using domain.DatabaseMetrics;
+using web.Infrastructure;
 using web.Models.DatabaseMetrics;
 
 namespace web.Controllers
@@ -23,15 +24,17 @@ namespace web.Controllers
             return View();
         }
 
-        public ActionResult SqlJobMetricsDashboard()
+        private SqlJobMetricDashboardViewModel get_sql_metrics_dashboard_data()
         {
-
-            var dashboard_view_model = new SqlJobMetricDashboardViewModel();
+             var dashboard_view_model = new SqlJobMetricDashboardViewModel();
 
             var success_metrics_view_models = new List<SqlJobMetricViewModel>();
             var failed_metrics_view_models = new List<SqlJobMetricViewModel>();
 
-            var job_metrics = sql_job_metric_repo.get_job_metrics_for_last_24_hours().ToList();
+            var job_metrics = sql_job_metric_repo.get_job_metrics_for_last_24_hours()
+                .OrderBy(x => x.job_name)
+                .ThenBy(x => x.job_step)
+                .ToList();
 
             var success_metrics =
                 job_metrics.Where(x => x.job_status == SqlJobMetrics.job_outcomes.success)
@@ -60,8 +63,15 @@ namespace web.Controllers
             dashboard_view_model.successful_jobs = success_metrics_view_models;
             dashboard_view_model.failed_jobs = failed_metrics_view_models;
 
-            return View(dashboard_view_model);
+            return dashboard_view_model;
 
+        }
+
+        public ActionResult SqlJobMetricsDashboard()
+        {
+            var dashboard_view_model = get_sql_metrics_dashboard_data();
+
+            return View(dashboard_view_model);
         }
 
         private SqlJobMetricViewModel build_sql_job_metric_view_model(SqlJobMetrics metric)
@@ -70,6 +80,7 @@ namespace web.Controllers
                 metric_view_model.job_name = metric.job_name;
                 metric_view_model.last_run = metric.last_run.ToString("M.d.yyyy h:mm");
                 metric_view_model.message = metric.message;
+                metric_view_model.job_step = metric.job_step.ToString();
 
             return metric_view_model;
         }

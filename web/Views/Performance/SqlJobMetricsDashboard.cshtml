@@ -7,38 +7,169 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+
+    $(".failed_job_message").hide();
+    wire_up_metric_auto_refresh();
+
+    function toggle_tab(tab_id, tab_link_id) {
+
+        var message_text_selector = "#" + tab_id;
+        var message_text_link_selector = "#" + tab_link_id;
+
+        var element_visible = $(message_text_selector).is(":visible");
+
+        if (element_visible) {
+            $(message_text_selector).hide('fast');
+            $(message_text_link_selector).attr('src', '/Content/images/nav_right.png');
+        }
+        else {
+            $(message_text_selector).show('fast');
+            $(message_text_link_selector).attr('src', '/Content/images/nav_down.png');
+        }
+
+    }
+
+</script>
+
+
 <style type="text/css">
 
-#successful_jobs 
+#successful_jobs
 {
-    -moz-border-radius: 5px;
-    border-radius:  5px; 
     background-color:  #00CC33;
+    margin-bottom: 20px;
+}
+
+#successful_jobs .metric.job_counter 
+{
+
 }
 
 #failed_jobs 
 {
-    
+    background-color: #bf1942;
+    border-bottom-left-radius:  0px;
+    border-bottom-right-radius: 0px;
 }
 
-.job_counter 
+.metric 
 {
-    -moz-border-radius: 2px;
-    border-radius: 2px;    
-    background-color:  #006633;
+    -moz-border-radius: 5px;
+    border-radius:  5px; 
+    padding: 15px;
+    width: 700px;
+}
+
+.metric .job_counter
+{
+    -moz-border-radius: 3px;
+    border-radius: 3px;    
+
     float:  right;
+    padding: 5px;
+    font-family: Arial;
+    color: White;
+}
+
+.metric .title 
+{
+    font-family:  Arial;
+    font-size: 24pt;
+    color:  White;   
+}
+
+#failed_jobs_details 
+{
+    color:  White;
+    border-top-right-radius:  0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-top-right-radius:  0px;
+    -moz-border-top-left-radius: 0px;
+    -moz-border-bottom-left-radius: 5px;
+    -moz-border-bottom-right-radius: 5px;
+    width: 730px;
+    background-color:  #7a0724;
+ 
+}
+
+#failed_jobs_details .failed_job_name 
+{
+    font-weight:  bold;
+    font-size: 14pt;
+}
+
+#failed_jobs_details .failed_job_date 
+{
+    float:  right;     
+    font-size:  10pt;
+}
+
+#failed_jobs_details .failed_job_message 
+{
+    display:  none;
+}
+
+a.failed_job_detail_link
+{
+ text-decoration:  none;   
+ color:  White;
+ font-size:  8pt;
+}
+
+#failed_jobs_details .failed_job_detail 
+{
+    margin-bottom: 10px;   
+    padding-left: 10px;
+    padding-right:  10px;
+    padding-bottom: 5px;
+    padding-top:   5px;
 }
 
 </style>
 
-<h2>SQL Job Metrics</h2>
 
-<div id="successful_jobs">
-    <span class="job_counter">@Model.successful_jobs_count / @Model.total_jobs_count</span>
+
+<div id="successful_jobs" class="metric">
+    <span class="title">Successful Jobs</span>
+    <span class="job_counter" style="background-color:#158031;">@Model.successful_jobs_count / @Model.total_jobs_count</span>
 </div>
 
 
-<div class="failed_jobs">
+<div id="failed_jobs" class="metric">
+    <span class="title">Failed Jobs</span>
+    <span class="job_counter" style="background-color:#7a0724">@Model.failed_jobs_count / @Model.total_jobs_count</span>
+
 
 
 </div>
+
+    <div id="failed_jobs_details">
+
+        @{int i = 0;}
+
+        @foreach(var error in @Model.failed_jobs) {
+
+            var job_message_id = "failed_job_message_" + i;
+            var job_message_link_image_id = "failed_job_message_link_" + i;
+            
+            <div class="failed_job_detail">
+              <a class="failed_job_detail_link" href="#" onclick="toggle_tab('@job_message_id', '@job_message_link_image_id');">
+                <img id="@job_message_link_image_id" src="/Content/images/nav_right.png" /></a>
+              <span class="failed_job_name">@error.job_name at Step @error.job_step</span>
+              <span class="failed_job_date">@error.last_run</span>
+
+              <p id="@job_message_id" class="failed_job_message">@error.message</p>
+
+              @{i++;}
+
+            </div>      
+           
+                  
+       } 
+
+    
+    </div>
+

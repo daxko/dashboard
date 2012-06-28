@@ -11,6 +11,7 @@ namespace domain.DatabaseMetrics
         public string message { get; set; }
         public DateTime last_run { get; set; }
         public job_outcomes job_status { get; set; }
+        public int job_step { get; set; }
 
         public enum job_outcomes 
         {

@@ -28,7 +28,8 @@ namespace domain.DatabaseMetrics
                                         when 1 then 1 /* success */
                                         else 0 /* failure */
                                     end,
-                    last_run_datetime = CONVERT(DATETIME, CONVERT(CHAR(8), run_date, 112) + ' ' + STUFF(STUFF(RIGHT('000000' + CONVERT(VARCHAR(8), run_time), 6), 5, 0, ':'), 3, 0, ':'), 121)
+                    last_run_datetime = CONVERT(DATETIME, CONVERT(CHAR(8), run_date, 112) + ' ' + STUFF(STUFF(RIGHT('000000' + CONVERT(VARCHAR(8), run_time), 6), 5, 0, ':'), 3, 0, ':'), 121),
+                    h.step_id
                 from msdb.dbo.sysjobhistory h
                 inner join msdb..sysjobs j on h.job_id = j.job_id
                 where CONVERT(DATETIME, CONVERT(CHAR(8), run_date, 112) + ' ' + STUFF(STUFF(RIGHT('000000' + CONVERT(VARCHAR(8), run_time), 6), 5, 0, ':'), 3, 0, ':'), 121) 
@@ -51,7 +52,6 @@ namespace domain.DatabaseMetrics
 
             return results;
 
-
         }
 
         SqlJobMetrics build_sql_job_metric_from_reader(SqlDataReader reader)
@@ -65,6 +65,7 @@ namespace domain.DatabaseMetrics
             metric.job_status = get_job_outcome_from_key(job_outcome_key);
 
             metric.last_run = reader.GetDateTime(3);
+            metric.job_step = reader.GetInt32(4);
 
             return metric;
         }

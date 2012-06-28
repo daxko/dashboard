@@ -28,14 +28,14 @@ namespace web {
             //todo:  refactor this to use proper security encryption when retrieving a connection string
             string db_connection_path = @"C:\\Daxko\\Dashboard\\db_connection_path.txt";
 
-            r.For<IDbConnection>().Use<SqlConnection>()
-                .Ctor<string>("connectionString").Is(File.OpenText(db_connection_path).ReadToEnd());
+            r.For<IDbConnection>().Use(x => new SqlConnection(File.OpenText(db_connection_path).ReadToEnd()));
 
         }
 
         static void wire_up_domain(IInitializationExpression x)
         {
             x.For<IQuoteRepository>().Use<QuoteRepository>();
+            //x.For<ISqlJobMetricRepository>().Use<MockupSqlJobMetricRepository>();
             x.For<ISqlJobMetricRepository>().Use<SqlJobMetricRepository>();
         }
     }

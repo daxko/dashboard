@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseMetrics\ISqlJobMetricRepository.cs" />
+    <Compile Include="DatabaseMetrics\MockupSqlJobMetricRepository.cs" />
     <Compile Include="DatabaseMetrics\SqlJobMetricRepository.cs" />
     <Compile Include="DatabaseMetrics\SqlJobMetrics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

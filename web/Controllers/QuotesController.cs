@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using domain.DatabaseMetrics;
 using domain.Quotes;
 using web.Infrastructure;
 using web.Models;
@@ -12,6 +13,7 @@ namespace web.Controllers
 
         public QuotesController(IQuoteRepository quote_repository)
         {
+
             this.quote_repository = quote_repository;
         }
 
