@@ -1,0 +1,44 @@
+﻿@using web.Models.DatabaseMetrics;
+
+@model SqlJobMetricDashboardViewModel
+
+@{
+    ViewBag.Title = "SqlJobMetricsDashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+
+#successful_jobs 
+{
+    -moz-border-radius: 5px;
+    border-radius:  5px; 
+    background-color:  #00CC33;
+}
+
+#failed_jobs 
+{
+    
+}
+
+.job_counter 
+{
+    -moz-border-radius: 2px;
+    border-radius: 2px;    
+    background-color:  #006633;
+    float:  right;
+}
+
+</style>
+
+<h2>SQL Job Metrics</h2>
+
+<div id="successful_jobs">
+    <span class="job_counter">@Model.successful_jobs_count / @Model.total_jobs_count</span>
+</div>
+
+
+<div class="failed_jobs">
+
+
+</div>
