@@ -26,7 +26,7 @@ namespace web {
         {
 
             //todo:  refactor this to use proper security encryption when retrieving a connection string
-            string db_connection_path = @"C:\\Daxko\\Dashboard\\db_connection_path.txt";
+            string db_connection_path = @"C:\\codebase\\Dashboard\\db_connection_path.txt";
 
             r.For<IDbConnection>().Use(x => new SqlConnection(File.OpenText(db_connection_path).ReadToEnd()));
 
@@ -37,6 +37,8 @@ namespace web {
             x.For<IQuoteRepository>().Use<QuoteRepository>();
             //x.For<ISqlJobMetricRepository>().Use<MockupSqlJobMetricRepository>();
             x.For<ISqlJobMetricRepository>().Use<SqlJobMetricRepository>();
+            //x.For<IErrorLogRepository>().Use<mockupErrorLogRepository>();
+            x.For<IErrorLogRepository>().Use<ErrorLogRepository>();
         }
     }
 }

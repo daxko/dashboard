@@ -5,11 +5,47 @@
     <script src="@Url.Content("~/Scripts/uptime/ops_uptime.js")" type="text/javascript"></script>
 }
 
+<style type="text/css">
+
+
+#pingdom
+{
+    margin-top: 100px;
+}
+
+img.pingdom_image
+{
+    width: 400px;
+    height: 220px;
+}
+
+#pingdom_table
+{
+    
+}
+
+
+</style>
+
 <h1>Operations Status</h1>
 
 <div class="row">
     <div class="span4 offset4" id="ops_status">
         @Html.Partial("_OpsApplicationStatus")
+    </div>
+    <div id="pingdom">
+        <table id="pingdom_table">
+            <tbody>
+                <tr>
+                    <td><a href="http://www.pingdom.com"><img class="pingdom_image" src="http://share.pingdom.com/banners/dafb697f" alt="Uptime Report for OPS1: Last 30 days" title="Uptime Report for OPS1: Last 30 days"/></a></td>
+                    <td><a href="http://www.pingdom.com"><img class="pingdom_image" src="http://share.pingdom.com/banners/f69704ce" alt="Uptime Report for OPS1-Web1: Last 30 days" title="Uptime Report for OPS1-Web1: Last 30 days"/></a></td>
+                </tr>
+                <tr>
+                    <td><a href="http://www.pingdom.com"><img class="pingdom_image" src="http://share.pingdom.com/banners/adaaaf2c" alt="Uptime Report for OPS1-Web2: Last 30 days" title="Uptime Report for OPS1-Web2: Last 30 days" /></a></td>
+                    <td><a href="http://www.pingdom.com"><img class="pingdom_image" src="http://share.pingdom.com/banners/484c5055" alt="Uptime Report for OPS1-Web3: Last 30 days" title="Uptime Report for OPS1-Web3: Last 30 days" /></a></td>
+                </tr>
+            </tbody>
+        </table> 
     </div>
 </div>
 

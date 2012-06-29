@@ -14,6 +14,7 @@
     <AssemblyName>web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,6 +75,9 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\BuildStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\ErrorLogs\ErrorDashboardViewModel.cs" />
+    <Compile Include="Models\ErrorLogs\ErrorCountViewModel.cs" />
+    <Compile Include="Models\ErrorLogs\ErrorLogViewModel.cs" />
     <Compile Include="Models\DatabaseMetrics\SqlJobMetricDashboardViewModel.cs" />
     <Compile Include="Models\DatabaseMetrics\SqlJobMetricViewModel.cs" />
     <Compile Include="Models\OpsProjectStatusViewModel.cs" />
@@ -212,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Performance\SqlJobMetricsDashboard.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Performance\ErrorLogDataDashboard.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

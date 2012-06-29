@@ -1,0 +1,77 @@
+﻿@using web.Models.ErrorLogs;
+
+@model ErrorDashboardViewModel
+
+@{
+    ViewBag.Title = "ErrorLogDataDashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+
+#top_errors 
+{
+    -moz-border-radius: 5px;
+    border-radius:  5px; 
+    background-color:  #a5dbd8;
+}
+
+.error_logs 
+{
+    -moz-border-radius: 2px;
+    border-radius: 2px;    
+    background-color:  #006633;
+    float:  right;
+}
+
+table.top_errors, th.top_errors, td.top_errors
+{
+    border: 2px solid black;
+}
+
+table.top_errors
+{
+    width: 100%;
+}
+
+th.top_errors
+{
+    text-style: bold;
+}
+
+#error_counts
+{
+    font-family: arial;
+    font-size: 14pt;
+    color: #a5dbd8;
+}
+
+span.error_counter
+{
+    font-size: 25pt;
+    color: #ee264e;
+}
+
+span.error_counter_date
+{
+    color: #efad1c;
+}
+
+</style>
+
+<div id="error_counts">
+    <p>As of <span class="error_counter_date">@Model.error_counts.current_date.ToString("hh:mm tt")</span></p>
+    <p><span class="error_counter_date">Right now</span> there are <span class="error_counter">@Model.error_counts.current_error_count</span> errors. --vs.-- <span class="error_counter_date">7 Days ago</span> there were <span class="error_counter">@Model.error_counts.past_error_count</span> errors.</p>
+</div>
+
+<div id="top_errors">
+    <h2>Top 5 Errors</h2>
+    @*<span class="error_logs"> Error Log Testing</span>*@
+    <table class="top_errors"><col width="25" />
+        <thead><tr><th class="top_errors">Error Count</th><th class="top_errors">Error</th></tr></thead>
+        <tbody>
+        @foreach (var x in Model.error_logs) { 
+            <tr><td class="top_errors">@x.error_count</td><td class="top_errors" style="word-wrap: break-word;">@x.error</td></tr>}</tbody>
+    </table>
+</div>
+

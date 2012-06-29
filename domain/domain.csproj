@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseMetrics\IErrorLogRepository.cs" />
+    <Compile Include="DatabaseMetrics\ErrorLogRepository.cs" />
+    <Compile Include="DatabaseMetrics\ErrorLogMetrics.cs" />
     <Compile Include="DatabaseMetrics\ISqlJobMetricRepository.cs" />
     <Compile Include="DatabaseMetrics\MockupSqlJobMetricRepository.cs" />
     <Compile Include="DatabaseMetrics\SqlJobMetricRepository.cs" />

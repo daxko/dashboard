@@ -38,6 +38,9 @@ namespace domain.DatabaseMetrics
                 results.Add(metric);
             }
 
+            if (db_connection.State == ConnectionState.Open)
+                db_connection.Close();
+
             return results;
 
         }
